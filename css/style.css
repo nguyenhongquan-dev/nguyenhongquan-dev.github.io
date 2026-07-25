@@ -1,0 +1,266 @@
+/* ============================================================ */
+/* PHOTO WORKFLOW BUILDER - CUSTOM STYLES                        */
+/* Dark theme with Bootstrap 5 overrides and custom components    */
+/* ============================================================ */
+
+/* ============================================================ */
+/* GLOBAL & LAYOUT                                               */
+/* ============================================================ */
+
+body {
+  min-height: 100vh;
+  /* Prevent horizontal scrollbar on narrow screens */
+  overflow-x: hidden;
+}
+
+/* Make the tab content area fill available vertical space */
+.tab-content {
+  min-height: calc(100vh - 130px);
+}
+
+/* ============================================================ */
+/* FOLDER ROWS (Tab 1)                                           */
+/* ============================================================ */
+
+.folder-row {
+  padding: 0.6rem 0;
+  border-bottom: 1px solid var(--bs-border-color-translucent);
+}
+
+.folder-row:last-child {
+  border-bottom: none;
+}
+
+.folder-path {
+  font-size: 0.85rem;
+  font-family: 'Consolas', 'Courier New', monospace;
+  background: rgba(255, 255, 255, 0.03);
+  padding: 0.25rem 0.5rem;
+  border-radius: 4px;
+  max-width: 100%;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+/* Status icon (checkmark / cross) next to each folder row */
+.status-icon {
+  display: inline-block;
+  width: 20px;
+  text-align: center;
+  font-size: 1.1rem;
+  margin-right: 4px;
+  vertical-align: middle;
+}
+
+.status-icon.valid {
+  color: #28a745;
+}
+
+.status-icon.invalid {
+  color: #dc3545;
+}
+
+/* Browse button */
+.btn-browse {
+  min-width: 90px;
+}
+
+/* ============================================================ */
+/* PASTE LIST (Tab 2)                                            */
+/* ============================================================ */
+
+/* The textarea for pasting Bridge list */
+#bridgePasteArea {
+  font-size: 0.85rem;
+  line-height: 1.4;
+  resize: vertical;
+}
+
+/* Parsed basenames container */
+#parsedBasenames {
+  font-family: 'Consolas', 'Courier New', monospace;
+  font-size: 0.85rem;
+  line-height: 1.6;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 4px;
+}
+
+/* Each basename badge in parsed result */
+.basename-badge {
+  display: inline-block;
+  background: var(--bs-dark);
+  color: var(--bs-body-color);
+  border: 1px solid var(--bs-border-color);
+  padding: 2px 8px;
+  border-radius: 4px;
+  font-size: 0.8rem;
+}
+
+/* VB detection result */
+#vbResult {
+  font-family: 'Consolas', 'Courier New', monospace;
+  font-size: 0.95rem;
+}
+
+.vb-found {
+  border: 1px solid var(--bs-success);
+  color: var(--bs-success);
+}
+
+.vb-error {
+  border: 1px solid var(--bs-danger);
+  color: var(--bs-danger);
+}
+
+/* ============================================================ */
+/* PREVIEW TREE (Tab 3)                                          */
+/* ============================================================ */
+
+.preview-tree {
+  font-family: 'Consolas', 'Courier New', monospace;
+  font-size: 0.85rem;
+  line-height: 1.7;
+}
+
+/* Root folder node */
+.tree-folder {
+  font-weight: bold;
+  color: var(--bs-warning);
+  margin-bottom: 4px;
+}
+
+/* Each section (RAW, LC, Geometry, etc.) */
+.tree-section {
+  margin-left: 1.5rem;
+  margin-bottom: 4px;
+}
+
+.tree-section-title {
+  font-weight: bold;
+  color: var(--bs-info);
+  margin-bottom: 2px;
+}
+
+.tree-file {
+  margin-left: 2.5rem;
+  padding: 1px 0;
+}
+
+.tree-file.found {
+  color: var(--bs-success);
+}
+
+.tree-file.missing {
+  color: var(--bs-danger);
+  background: rgba(220, 53, 69, 0.1);
+  border-radius: 3px;
+  padding-left: 4px;
+}
+
+/* ============================================================ */
+/* BUILD LOG (Tab 4)                                             */
+/* ============================================================ */
+
+.log-area {
+  background: #0a0a0a;
+  border: 1px solid var(--bs-border-color);
+  border-radius: 6px;
+  padding: 0.75rem;
+  height: 240px;
+  overflow-y: auto;
+  font-family: 'Consolas', 'Courier New', monospace;
+  font-size: 0.8rem;
+  line-height: 1.5;
+  color: #c0c0c0;
+}
+
+/* Each log line */
+.log-line {
+  white-space: pre-wrap;
+  word-break: break-all;
+  padding: 1px 0;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.03);
+}
+
+.log-line.info {
+  color: #b0b0b0;
+}
+
+.log-line.success {
+  color: #28a745;
+}
+
+.log-line.warning {
+  color: #ffc107;
+}
+
+.log-line.error {
+  color: #dc3545;
+  font-weight: bold;
+}
+
+.log-line.progress {
+  color: #0dcaf0;
+  font-style: italic;
+}
+
+/* ============================================================ */
+/* RESPONSIVE                                                    */
+/* ============================================================ */
+
+@media (max-width: 768px) {
+  /* Stack folder row elements vertically on small screens */
+  .folder-row .row > div {
+    text-align: left !important;
+    margin-bottom: 4px;
+  }
+
+  .folder-row .text-end {
+    text-align: left !important;
+  }
+
+  /* Ensure buttons are not too small to tap on mobile */
+  .btn-browse {
+    min-width: 120px;
+    padding: 0.4rem 0.8rem;
+  }
+
+  .log-area {
+    height: 180px;
+  }
+
+  /* Make tab labels more compact on mobile */
+  .nav-link {
+    font-size: 0.8rem;
+    padding: 0.5rem 0.3rem;
+  }
+}
+
+@media (max-width: 576px) {
+  .nav-link {
+    font-size: 0.7rem;
+    padding: 0.4rem 0.2rem;
+  }
+}
+
+/* ============================================================ */
+/* UTILITY CLASSES                                               */
+/* ============================================================ */
+
+/* Smooth fade for toast */
+.toast {
+  min-width: 280px;
+}
+
+/* Ensure preview errors section is always visible when shown */
+#previewErrors {
+  border-radius: 6px;
+}
+
+/* Disabled button states */
+#btnBuild:disabled {
+  cursor: not-allowed;
+  opacity: 0.5;
+}
