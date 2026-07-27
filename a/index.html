@@ -1,0 +1,48 @@
+<!doctype html>
+<html lang="vi">
+<head>
+  <meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+  <title>Fluent Dashboard</title>
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
+  <link rel="stylesheet" href="css/style.css">
+  <style>
+    :root{--accent:#2563eb;--bg:#eef3fa;--surface:rgba(255,255,255,.94);--surface-solid:#fff;--text:#142033;--muted:#475569;--line:#cbd5e1}.dark{--bg:#111827;--surface:rgba(30,41,59,.95);--surface-solid:#1e293b;--text:#f8fafc;--muted:#cbd5e1;--line:#475569}.site-url,.site-description,.toolbar p,.field label,.side-heading{color:var(--muted)}.nav-item{font-weight:550}.nav-item:hover,.nav-item.active{background:color-mix(in srgb,var(--accent) 15%,var(--surface-solid))}.field input,.field textarea,.field select{background:var(--surface-solid);color:var(--text)}.context-menu,.site-title{color:var(--text)}.search input::placeholder{color:var(--muted);opacity:1}
+  </style>
+</head>
+<body>
+  <div class="app-shell">
+    <header class="topbar glass">
+      <button class="brand" id="homeBtn" title="Dashboard"><span class="brand-mark"><i class="bi bi-grid-1x2-fill"></i></span><span data-i18n="brand">My Dashboard</span></button>
+      <label class="search"><span><i class="bi bi-search"></i></span><input id="searchInput" type="search" data-i18n-placeholder="search" placeholder="Search websites, folders…" autocomplete="off"><kbd>Ctrl K</kbd></label>
+      <div class="header-actions">
+        <button class="button primary" data-action="new-website"><i class="bi bi-plus-lg"></i> <span data-i18n="newWebsite">New website</span></button>
+        <button class="button" data-action="new-folder"><i class="bi bi-folder-plus"></i> <span data-i18n="newFolder">New folder</span></button>
+        <button class="icon-button" data-action="import" title="Import"><i class="bi bi-upload"></i></button>
+        <button class="icon-button" data-action="export" title="Export"><i class="bi bi-download"></i></button>
+        <button class="icon-button" data-action="settings" title="Settings"><i class="bi bi-gear"></i></button>
+      </div>
+    </header>
+    <main class="layout">
+      <aside class="sidebar glass">
+        <nav id="filterNav" class="nav-list"></nav>
+        <div class="side-heading"><span data-i18n="folders">FOLDERS</span><button class="mini-button" data-action="new-folder">＋</button></div>
+        <div id="folderNav" class="folder-nav"></div>
+        <div class="side-footer"><button class="nav-item" data-action="settings">⚙ <span>Settings</span></button></div>
+      </aside>
+      <section class="workspace">
+        <div class="toolbar glass">
+          <div><h1 id="pageTitle">All websites</h1><p id="pageMeta"></p></div>
+          <div class="toolbar-actions">
+            <select id="sortSelect" aria-label="Sort"><option value="manual">Manual</option><option value="alphabet">Alphabet</option><option value="created">Created date</option><option value="modified">Modified date</option><option value="used">Most used</option></select>
+            <select id="viewSelect" aria-label="View"><option value="grid">Grid</option><option value="list">List</option><option value="compact">Compact</option><option value="large">Large</option><option value="small">Small</option></select>
+          </div>
+        </div>
+        <section id="pinnedSection" class="pinned-section hidden"><div class="section-label">PINNED</div><div id="pinnedGrid" class="website-grid pinned-grid"></div></section>
+        <section id="content" class="content"></section>
+      </section>
+    </main>
+  </div>
+  <input id="fileInput" type="file" accept="application/json" hidden>
+  <div id="modalRoot"></div><div id="contextMenu" class="context-menu"></div><div id="toastRoot" class="toast-root"></div>
+  <script src="js/storage.js"></script><script src="js/folder.js"></script><script src="js/website.js"></script><script src="js/dialog.js"></script><script src="js/contextmenu.js"></script><script src="js/search.js"></script><script src="js/theme.js"></script><script src="js/ui.js"></script><script src="js/app.js"></script>
+</body></html>

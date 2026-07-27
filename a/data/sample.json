@@ -1,0 +1,11 @@
+{
+  "version": 1,
+  "exportedAt": "2026-07-27T00:00:00.000Z",
+  "data": {
+    "workspaces": [{"id":"work","name":"Công việc","icon":"◈","color":"#3977ed"}],
+    "activeWorkspaceId": "work",
+    "folders": [{"id":"coding","workspaceId":"work","name":"Coding","color":"#3977ed","icon":"⌘","collapsed":false,"order":0}],
+    "websites": [{"id":"github","workspaceId":"work","name":"GitHub","url":"https://github.com","description":"Code and collaboration","icon":"","iconType":"favicon","displayType":"Card","background":"#eaf1ff","textColor":"#3977ed","favorite":true,"pinned":true,"createdAt":1760000000000,"modifiedAt":1760000000000,"lastUsed":0,"useCount":0,"folderId":"coding","order":0}]
+  },
+  "settings": {"theme":"auto","accent":"#3977ed","blur":18,"transparency":75,"view":"grid","sort":"manual"}
+}
