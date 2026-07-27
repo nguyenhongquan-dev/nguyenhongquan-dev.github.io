@@ -2,7 +2,7 @@
 <html lang="vi">
 <head>
   <meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
-  <title>Fluent Dashboard</title>
+  <title>Quản lý url</title>
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
   <link rel="stylesheet" href="css/style.css">
   <style>
@@ -12,11 +12,11 @@
 <body>
   <div class="app-shell">
     <header class="topbar glass">
-      <button class="brand" id="homeBtn" title="Dashboard"><span class="brand-mark"><i class="bi bi-grid-1x2-fill"></i></span><span data-i18n="brand">My Dashboard</span></button>
+      <button class="brand" id="homeBtn" title="Dashboard"><span class="brand-mark"><i class="bi bi-grid-1x2-fill"></i></span><span data-i18n="brand">Dữ liệu</span></button>
       <label class="search"><span><i class="bi bi-search"></i></span><input id="searchInput" type="search" data-i18n-placeholder="search" placeholder="Search websites, folders…" autocomplete="off"><kbd>Ctrl K</kbd></label>
       <div class="header-actions">
-        <button class="button primary" data-action="new-website"><i class="bi bi-plus-lg"></i> <span data-i18n="newWebsite">New website</span></button>
-        <button class="button" data-action="new-folder"><i class="bi bi-folder-plus"></i> <span data-i18n="newFolder">New folder</span></button>
+        <button class="button primary" data-action="new-website"><i class="bi bi-plus-lg"></i> <span data-i18n="newWebsite">Link mới</span></button>
+        <button class="button" data-action="new-folder"><i class="bi bi-folder-plus"></i> <span data-i18n="newFolder">Thư mục mới</span></button>
         <button class="icon-button" data-action="import" title="Import"><i class="bi bi-upload"></i></button>
         <button class="icon-button" data-action="export" title="Export"><i class="bi bi-download"></i></button>
         <button class="icon-button" data-action="settings" title="Settings"><i class="bi bi-gear"></i></button>
@@ -25,19 +25,19 @@
     <main class="layout">
       <aside class="sidebar glass">
         <nav id="filterNav" class="nav-list"></nav>
-        <div class="side-heading"><span data-i18n="folders">FOLDERS</span><button class="mini-button" data-action="new-folder">＋</button></div>
+        <div class="side-heading"><span data-i18n="folders">Thư mục</span><button class="mini-button" data-action="new-folder">＋</button></div>
         <div id="folderNav" class="folder-nav"></div>
-        <div class="side-footer"><button class="nav-item" data-action="settings">⚙ <span>Settings</span></button></div>
+        <div class="side-footer"><button class="nav-item" data-action="settings">⚙ <span>Cài đặt</span></button></div>
       </aside>
       <section class="workspace">
         <div class="toolbar glass">
-          <div><h1 id="pageTitle">All websites</h1><p id="pageMeta"></p></div>
+          <div><h1 id="pageTitle">Tất cả link</h1><p id="pageMeta"></p></div>
           <div class="toolbar-actions">
-            <select id="sortSelect" aria-label="Sort"><option value="manual">Manual</option><option value="alphabet">Alphabet</option><option value="created">Created date</option><option value="modified">Modified date</option><option value="used">Most used</option></select>
-            <select id="viewSelect" aria-label="View"><option value="grid">Grid</option><option value="list">List</option><option value="compact">Compact</option><option value="large">Large</option><option value="small">Small</option></select>
+            <select id="sortSelect" aria-label="Sort"><option value="manual">Thủ công</option><option value="alphabet">Alphabet</option><option value="created">Ngày tạo</option><option value="modified">Ngày sửa dổi</option><option value="used">Được sử dụng nhiều nhất</option></select>
+            <select id="viewSelect" aria-label="View"><option value="grid">Lưới</option><option value="list">Danh sách</option><option value="compact">Gọn</option><option value="large">To</option><option value="small">Nhỏ</option></select>
           </div>
         </div>
-        <section id="pinnedSection" class="pinned-section hidden"><div class="section-label">PINNED</div><div id="pinnedGrid" class="website-grid pinned-grid"></div></section>
+        <section id="pinnedSection" class="pinned-section hidden"><div class="section-label">Ghim</div><div id="pinnedGrid" class="website-grid pinned-grid"></div></section>
         <section id="content" class="content"></section>
       </section>
     </main>
